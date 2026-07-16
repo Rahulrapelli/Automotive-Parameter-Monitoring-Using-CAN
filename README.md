@@ -195,34 +195,8 @@ CAN Frame
 Indicator Node  
       ↓  
 LED Animation  
-
-Data Flow  
-Fuel Sensor  
-      ↓  
-ADC  
-      ↓  
-Fuel Node  
-      ↓  
-CAN  
-      ↓  
-Main Node  
-      ↓  
-LCD  
-Temperature Sensor  
-        ↓  
-Main Node  
-        ↓  
-LCD  
-Switches  
-    ↓  
-Main Node  
-    ↓  
-CAN  
-    ↓  
-Indicator Node  
-    ↓  
-LEDs  
-Project Workflow  
+ 
+Project Workflow    
 Power ON  
 ↓  
 Initialize LCD  
@@ -279,34 +253,34 @@ Marine control systems
 Smart transportation systems  
 Automotive ECU development and education
 
-Project Folder Structure   
+Project Folder Structure     
 
-Automotive-CAN-Bus-System/
-│
-├── Main_Node/
-│   ├── main.c
-│   ├── can.c
-│   ├── lcd.c
-│   ├── ds18b20.c
-│   ├── interrupt.c
-│   └── include/
-│
-├── Fuel_Node/
-│   ├── main.c
-│   ├── adc.c
-│   ├── can.c
-│   └── include/
-│
-├── Indicator_Node/
-│   ├── main.c
-│   ├── led.c
-│   ├── can.c
-│   └── include/
-│
-├── README.md
-└── LICENSE
+Automotive-CAN-Bus-System/  
+│  
+├── Main_Node/  
+│   ├── main.c  
+│   ├── can.c  
+│   ├── lcd.c  
+│   ├── ds18b20.c  
+│   ├── interrupt.c  
+│   └── include/  
+│  
+├── Fuel_Node/  
+│   ├── main.c  
+│   ├── adc.c  
+│   ├── can.c  
+│   └── include /  
+│  
+├── Indicator_Node/  
+│   ├── main.c  
+│   ├── led.c  
+│   ├── can.c  
+│   └── include /  
+│  
+├── README.md  
+└── LICENSE  
 
- Output
+ Output  
 
 LCD displays engine temperature in real time.    
 Fuel node continuously measures and sends fuel percentage to the main node.  
