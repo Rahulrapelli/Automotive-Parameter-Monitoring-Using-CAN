@@ -96,25 +96,7 @@ CAN is terminated with 120Ω resistors at both ends to eliminate signal reflecti
 
 **1️⃣ Main Node**  
 
-Responsibilities  
-Reads Engine Temperature  
-Displays Temperature on LCD  
-Receives Fuel Level  
-Reads Left Indicator Switch  
-Reads Right Indicator Switch  
-Sends Indicator Commands  
-Coordinates CAN Network  
-Connected Peripherals  
-Peripheral	Interface  
-LCD	GPIO  
-DS18B20	One Wire  
-Left Switch	External Interrupt  
-Right Switch	External Interrupt  
-MCP2551	CAN  
-Main Node Working  
-Temperature Monitoring  
-
-The DS18B20 continuously measures engine temperature.  
+The Main Node acts as the central controller of the Automotive Parameter Monitoring System and coordinates communication between all the CAN nodes. It is responsible for monitoring the engine temperature, receiving fuel level information from the Fuel Node, controlling the vehicle indicators, and displaying all important parameters on the LCD. The Main Node interfaces with a DS18B20 temperature sensor, a 16×2 LCD, left and right indicator switches, and an MCP2551 CAN transceiver connected to the LPC2129 microcontroller.  
 
 DS18B20  
      ↓  
@@ -145,16 +127,8 @@ LED Animation
 
 **2️⃣ Fuel Node**
 
-Responsibilities  
-Reads Analog Fuel Sensor  
-Converts Analog Voltage to Digital  
-Calculates Fuel Percentage  
-Sends Fuel Data over CAN  
-Connected Hardware  
-Peripheral	Interface  
-Fuel Sensor	ADC  
-MCP2551	CAN  
-Working  
+The Fuel Node is dedicated to monitoring the vehicle's fuel level and transmitting the measured value to the Main Node through the CAN bus. It consists of an LPC2129 microcontroller, an analog fuel sensor (represented by a potentiometer in this project), and an MCP2551 CAN transceiver. The analog output of the fuel sensor is connected to one of the ADC channels of the LPC2129.  
+
 Fuel Sensor  
       ↓  
 ADC  
@@ -167,18 +141,8 @@ Main Node
 Fuel Percentage Calculation  
 
 **3️⃣ Indicator Node**  
+The Indicator Node is responsible for controlling the vehicle's left and right indicator lights based on commands received from the Main Node through the CAN bus. It consists of an LPC2129 microcontroller, an MCP2551 CAN transceiver, and a set of LEDs used to simulate the vehicle indicators.
 
-Responsibilities  
-Receives Indicator Command  
-Controls LEDs  
-Displays Left Animation  
-Displays Right Animation  
-LED Operation 
-Animation moves  
-Right → Left  
-Right Indicator  
-Animation moves  
-Left → Right  
 
 **CAN Communication Flow** 
 
