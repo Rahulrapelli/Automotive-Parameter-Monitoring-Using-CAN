@@ -265,5 +265,7 @@ All communication occurs over the CAN bus, with reliable message transmission be
 
 
 
-**Author**
+
+
+**Author**  
 *Rahul Rapelli*
