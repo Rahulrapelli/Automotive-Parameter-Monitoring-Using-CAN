@@ -13,13 +13,16 @@ Indicator Node – Receives turn indicator commands and displays LED scrolling p
 All nodes communicate through the CAN protocol using the on-chip CAN controller of LPC2129 and the MCP2551 CAN transceiver.   
 
 🎯 Objectives  
+
 Learn CAN Bus communication.  
 Understand distributed embedded systems.  
 Implement multi-node communication.  
 Interface sensors with LPC2129.  
 Develop real-time automotive applications.  
 Reduce wiring complexity using CAN.  
+
 🏗️ System Architecture  
+
                 +------------------------+  
                 |      MAIN NODE         |  
                 |------------------------|  
@@ -42,7 +45,8 @@ Reduce wiring complexity using CAN.
 | ADC           |                  | 8 LEDs         |  
 | Fuel Sensor   |                  | Indicator LEDs |  
 +---------------+                  +----------------+  
-🧰 Hardware Components  
+
+🧰 Hardware Components
 Component	Quantity	Purpose  
 LPC2129 ARM7 MCU	3	Main Controller for each node  
 MCP2551 CAN Transceiver	3	CAN Physical Layer  
@@ -54,7 +58,8 @@ LEDs	8	Indicator Simulation
 120Ω Resistors	2	CAN Bus Termination  
 Crystal Oscillator	3	MCU Clock  
 Power Supply	5V/3.3V	System Power  
-💻 Software Requirements  
+
+💻 Software Requirements
 Software	Purpose  
 Keil uVision 5	Program Development  
 Embedded C	Programming Language  
@@ -65,7 +70,8 @@ Protocol	Usage
 CAN	Node Communication  
 One Wire	DS18B20 Temperature Sensor  
 ADC	Fuel Sensor Reading  
-GPIO	LEDs, LCD, Switches  
+GPIO	LEDs, LCD, Switches 
+
 CAN Network Topology  
 120Ω                               120Ω  
 RT                                    RT  
@@ -82,7 +88,6 @@ CANL ----------------------------------------- CANL
 
 CAN is terminated with 120Ω resistors at both ends to eliminate signal reflections.  
 
-Node Description  
 1️⃣ Main Node  
 Responsibilities  
 Reads Engine Temperature  
@@ -129,7 +134,8 @@ CAN Message
       ↓  
 Indicator Node  
       ↓  
-LED Animation  
+LED Animation
+
 2️⃣ Fuel Node  
 Responsibilities  
 Reads Analog Fuel Sensor  
