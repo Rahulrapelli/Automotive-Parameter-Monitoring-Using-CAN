@@ -46,7 +46,8 @@ Reduce wiring complexity using CAN.
 | Fuel Sensor   |                  | Indicator LEDs |  
 +---------------+                  +----------------+  
 
-🧰 Hardware Components
+🧰 Hardware Components  
+
 Component	Quantity	Purpose  
 LPC2129 ARM7 MCU	3	Main Controller for each node  
 MCP2551 CAN Transceiver	3	CAN Physical Layer  
@@ -59,7 +60,8 @@ LEDs	8	Indicator Simulation
 Crystal Oscillator	3	MCU Clock  
 Power Supply	5V/3.3V	System Power  
 
-💻 Software Requirements
+💻 Software Requirements  
+
 Software	Purpose  
 Keil uVision 5	Program Development  
 Embedded C	Programming Language  
@@ -89,6 +91,7 @@ CANL ----------------------------------------- CANL
 CAN is terminated with 120Ω resistors at both ends to eliminate signal reflections.  
 
 1️⃣ Main Node  
+
 Responsibilities  
 Reads Engine Temperature  
 Displays Temperature on LCD  
@@ -137,6 +140,7 @@ Indicator Node
 LED Animation
 
 2️⃣ Fuel Node  
+
 Responsibilities  
 Reads Analog Fuel Sensor  
 Converts Analog Voltage to Digital  
@@ -159,6 +163,7 @@ Main Node
 Fuel Percentage Calculation  
 
 3️⃣ Indicator Node  
+
 Responsibilities  
 Receives Indicator Command  
 Controls LEDs  
@@ -190,6 +195,7 @@ CAN Frame
 Indicator Node  
       ↓  
 LED Animation  
+
 Data Flow  
 Fuel Sensor  
       ↓  
@@ -218,75 +224,63 @@ Indicator Node
 LEDs  
 Project Workflow  
 Power ON  
-
 ↓  
-
 Initialize LCD  
-
 ↓  
-
 Initialize CAN  
-
 ↓  
-
 Initialize DS18B20  
-
 ↓  
-
 Initialize ADC  
-
 ↓  
-
 Wait for CAN Messages  
-
 ↓  
-
 Read Sensors  
-
 ↓  
-
 Send CAN Frames  
-
 ↓  
-
 Receive Frames  
-
 ↓  
-
 Display Results  
-
 ↓  
+Repeat Forever
 
-Repeat Forever  
 Key Features  
+
 Multi-node CAN network architecture  
 Real-time sensor monitoring  
 Fuel level measurement using ADC  
-Digital temperature measurement using DS18B20  
-CAN-based indicator control
-Distributed processing using three LPC2129 controllers
-16×2 LCD for real-time monitoring
-Reliable communication with CAN error detection
-Low wiring complexity compared to point-to-point communication
-Modular and scalable design
-Advantages
-High communication reliability
-Fault-tolerant network
-Fast real-time data transfer
-Reduced wiring harness
-Easy addition of new ECU nodes
-Supports priority-based message transmission
-Suitable for automotive applications
-Applications
-Passenger vehicles
-Electric vehicles (EVs)
-Agricultural machinery
-Heavy-duty trucks
-Industrial automation
-Marine control systems
-Smart transportation systems
+Digital temperature measurement using DS18B20    
+CAN-based indicator control  
+Distributed processing using three LPC2129 controllers  
+16×2 LCD for real-time monitoring  
+Reliable communication with CAN error detection  
+Low wiring complexity compared to point-to-point communication  
+Modular and scalable design  
+
+Advantages  
+
+High communication reliability  
+Fault-tolerant network  
+Fast real-time data transfer  
+Reduced wiring harness  
+Easy addition of new ECU nodes  
+Supports priority-based message transmission  
+Suitable for automotive applications   
+
+Applications 
+
+Passenger vehicles  
+Electric vehicles (EVs)  
+Agricultural machinery  
+Heavy-duty trucks  
+Industrial automation  
+Marine control systems  
+Smart transportation systems  
 Automotive ECU development and education
-Project Folder Structure
+
+Project Folder Structure   
+
 Automotive-CAN-Bus-System/
 │
 ├── Main_Node/
@@ -309,24 +303,14 @@ Automotive-CAN-Bus-System/
 │   ├── can.c
 │   └── include/
 │
-├── Drivers/
-│   ├── can/
-│   ├── lcd/
-│   ├── adc/
-│   ├── ds18b20/
-│   └── delay/
-│
-├── Images/
-│   ├── Block_Diagram.png
-│   ├── Circuit.png
-│   └── Output.png
-│
 ├── README.md
 └── LICENSE
-Expected Output
-LCD displays engine temperature in real time.
-Fuel node continuously measures and sends fuel percentage to the main node.
-Main node receives and displays the fuel level on the LCD.
-Pressing the Left Indicator switch causes LEDs on the Indicator Node to scroll from right to left.
-Pressing the Right Indicator switch causes LEDs to scroll from left to right.
-All communication occurs over the CAN bus, with reliable message transmission between nodes.
+
+ Output
+
+LCD displays engine temperature in real time.    
+Fuel node continuously measures and sends fuel percentage to the main node.  
+Main node receives and displays the fuel level on the LCD.  
+Pressing the Left Indicator switch causes LEDs on the Indicator Node to scroll from right to left.  
+Pressing the Right Indicator switch causes LEDs to scroll from left to right.  
+All communication occurs over the CAN bus, with reliable message transmission between nodes.  
