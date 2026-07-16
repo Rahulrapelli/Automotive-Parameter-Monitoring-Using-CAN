@@ -300,3 +300,6 @@ All communication occurs over the CAN bus, with reliable message transmission be
 <img width="504" height="200" alt="WhatsApp Image 2026-07-15 at 4 06 34 PM" src="https://github.com/user-attachments/assets/5b510585-ced7-4972-bec4-744b1d1ad098" />
 
 
+
+**Author**
+*Rahul Rapelli*
