@@ -90,7 +90,7 @@ CANL ----------------------------------------- CANL
 
 CAN is terminated with 120Ω resistors at both ends to eliminate signal reflections.  
 
-<img width="980" height="553" alt="WhatsApp Image 2026-07-16 at 4 38 21 PM" src="https://github.com/user-attachments/assets/c0113445-d179-4d86-84d0-2a5bbaff9207" />
+<img width="580" height="203" alt="WhatsApp Image 2026-07-16 at 4 38 21 PM" src="https://github.com/user-attachments/assets/c0113445-d179-4d86-84d0-2a5bbaff9207" />
 
 
 1️⃣ Main Node  
@@ -292,6 +292,6 @@ Pressing the Left Indicator switch causes LEDs on the Indicator Node to scroll f
 Pressing the Right Indicator switch causes LEDs to scroll from left to right.  
 All communication occurs over the CAN bus, with reliable message transmission between nodes.  
 
-<img width="704" height="200" alt="WhatsApp Image 2026-07-15 at 4 06 34 PM" src="https://github.com/user-attachments/assets/5b510585-ced7-4972-bec4-744b1d1ad098" />
+<img width="504" height="200" alt="WhatsApp Image 2026-07-15 at 4 06 34 PM" src="https://github.com/user-attachments/assets/5b510585-ced7-4972-bec4-744b1d1ad098" />
 
 
