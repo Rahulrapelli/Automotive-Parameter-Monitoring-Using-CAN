@@ -90,7 +90,7 @@ CANL ----------------------------------------- CANL
 
 CAN is terminated with 120Ω resistors at both ends to eliminate signal reflections.  
 
-<img width="580" height="203" alt="WhatsApp Image 2026-07-16 at 4 38 21 PM" src="https://github.com/user-attachments/assets/c0113445-d179-4d86-84d0-2a5bbaff9207" />
+<img width="680" height="503" alt="WhatsApp Image 2026-07-16 at 4 38 21 PM" src="https://github.com/user-attachments/assets/c0113445-d179-4d86-84d0-2a5bbaff9207" />
 
 
 1️⃣ Main Node  
