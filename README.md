@@ -1,4 +1,4 @@
-<h1>Automotive-Parameter-Monitoring-Using-CAN🚗</h1>
+<h1>🚗Automotive-Parameter-Monitoring-Using-CAN</h1>
 
 **📌 Project Overview**
 
@@ -57,7 +57,7 @@ All nodes communicate through the CAN protocol using the on-chip CAN controller 
 | LPC2129 ARM7 MCU            |        3 | Main controller for each node  |  
 | MCP2551 CAN Transceiver     |        3 | CAN physical layer             |  
 | DS18B20 Temperature Sensor  |        1 | Engine temperature measurement |  
-| Potentiometer (Fuel Sensor) |        1 | Fuel level simulation          |  
+| Fuel Sensor(potentiometer)  |        1 | Fuel level simulation          |  
 | 16×2 LCD                    |        1 | Display temperature & fuel     |  
 | Push Buttons                |        2 | Left & Right indicator control |  
 | LEDs                        |        8 | Indicator simulation           |  
@@ -70,10 +70,9 @@ All nodes communicate through the CAN protocol using the on-chip CAN controller 
 
 | Software       | Purpose                       |  
 | -------------- | ----------------------------- |  
-| Keil µVision 5 | Code Development              |  
+| Keil µVision 4 | Code Development              |  
 | Embedded C     | Programming Language          |  
-| Flash Magic    | Program Download              |  
-| Proteus        | Circuit Simulation (Optional) |  
+| Flash Magic    | Program Download              |   
 
 
 **CAN Network Topology**
@@ -93,7 +92,6 @@ CANL ============================================== CANL
 
 CAN is terminated with 120Ω resistors at both ends to eliminate signal reflections.  
 
-<img width="680" height="503" alt="WhatsApp Image 2026-07-16 at 4 38 21 PM" src="https://github.com/user-attachments/assets/c0113445-d179-4d86-84d0-2a5bbaff9207" />
 
 
 **🚘 Main Node**  
