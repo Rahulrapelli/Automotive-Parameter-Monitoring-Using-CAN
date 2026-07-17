@@ -14,51 +14,57 @@ All nodes communicate through the CAN protocol using the on-chip CAN controller 
 
 **🎯 Objectives**  
 
-Learn CAN Bus communication.  
-Understand distributed embedded systems.  
-Implement multi-node communication.  
-Interface sensors with LPC2129.  
-Develop real-time automotive applications.  
-Reduce wiring complexity using CAN.  
+| Objective             | Description                                   |  
+| --------------------- | --------------------------------------------- |  
+| 🚗 CAN Communication  | Learn Controller Area Network protocol        |  
+| 🔄 Multi-node System  | Implement communication between multiple ECUs |  
+| 🌡 Sensor Interface   | Read engine temperature using DS18B20         |  
+| ⛽ Fuel Monitoring     | Measure fuel level using ADC                  |  
+| 💡 Indicator Control  | Control left/right indicators through CAN     |  
+| 📺 Dashboard Display  | Display vehicle parameters on LCD             |  
+| 🔌 Distributed System | Understand automotive embedded architecture   |  
+
 
 **🏗️ System Architecture**  
 
-                +------------------------+  
-                |      MAIN NODE         |  
-                |------------------------|  
-                | LPC2129               |  
-                | LCD                   |  
-                | DS18B20               |  
-                | Left Switch           |  
-                | Right Switch          |  
-                +-----------+-----------+  
-                            |  
-                      MCP2551 Transceiver  
-                            |  
-====================== CAN BUS ======================  
-        |                                  |  
-        |                                  |  
-+-------+-------+                  +-------+--------+  
-|   FUEL NODE   |                  | INDICATOR NODE |  
-|---------------|                  |----------------|  
-| LPC2129       |                  | LPC2129        |  
-| ADC           |                  | 8 LEDs         |  
-| Fuel Sensor   |                  | Indicator LEDs |  
-+---------------+                  +----------------+  
-
+                 +--------------------------------+  
+                 |          MAIN NODE             |  
+                 |--------------------------------|  
+                 | LPC2129                        |  
+                 | DS18B20 Temperature Sensor     |  
+                 | 16x2 LCD                       |  
+                 | Left & Right Switches          |  
+                 +---------------+----------------+  
+                                 |  
+                           MCP2551 CAN  
+                                 |  
+      ========================= CAN BUS =========================  
+                                 |  
+            +---------------------------+--------------------+  
+            |                                             |  
+      +-------------+                                 +---------------+  
+      | Fuel Node   |                                 | Indicator Node|  
+      |-------------|                                 |---------------|  
+      | LPC2129     |                                 | LPC2129       |  
+      | ADC         |                                 | LEDs          |  
+      | Fuel Sensor |                                 | LED Patterns  |  
+      +-------------+                                 +---------------+  
+  
 **🧰 Hardware Components**
 
-Component	Quantity	Purpose  
-LPC2129 ARM7 MCU	3	Main Controller for each node  
-MCP2551 CAN Transceiver	3	CAN Physical Layer  
-DS18B20 Temperature Sensor	1	Engine Temperature  
-Potentiometer/Fuel Sensor	1	Fuel Level Measurement  
-16x2 LCD	1	Display Temperature & Fuel  
-Push Buttons	2	Left & Right Indicators  
-LEDs	8	Indicator Simulation  
-120Ω Resistors	2	CAN Bus Termination  
-Crystal Oscillator	3	MCU Clock  
-Power Supply	5V/3.3V	System Power  
+| Component                   | Quantity | Purpose                        |  
+| --------------------------- | -------: | ------------------------------ |  
+| LPC2129 ARM7 MCU            |        3 | Main controller for each node  |  
+| MCP2551 CAN Transceiver     |        3 | CAN physical layer             |  
+| DS18B20 Temperature Sensor  |        1 | Engine temperature measurement |  
+| Potentiometer (Fuel Sensor) |        1 | Fuel level simulation          |  
+| 16×2 LCD                    |        1 | Display temperature & fuel     |  
+| Push Buttons                |        2 | Left & Right indicator control |  
+| LEDs                        |        8 | Indicator simulation           |  
+| 120Ω Resistors              |        2 | CAN bus termination            |  
+| Crystal Oscillator          |        3 | MCU clock generation           |  
+| 5V/3.3V Supply              |        1 | Power source                   |  
+
 
 **💻 Software Requirements**  
 
