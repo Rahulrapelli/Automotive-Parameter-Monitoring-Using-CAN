@@ -92,6 +92,7 @@ CANL ============================================== CANL
 
 CAN is terminated with 120Ω resistors at both ends to eliminate signal reflections.  
 
+<img width="800" height="600" alt="ChatGPT Image Jul 17, 2026, 05_03_23 PM" src="https://github.com/user-attachments/assets/e78a6541-e392-4736-bf54-4f8b1c0151d3" />
 
 
 **🚘 Main Node**  
