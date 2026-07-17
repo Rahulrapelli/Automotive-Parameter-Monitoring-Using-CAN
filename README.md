@@ -68,32 +68,28 @@ All nodes communicate through the CAN protocol using the on-chip CAN controller 
 
 **💻 Software Requirements**  
 
-Software	Purpose  
-Keil uVision 5	Program Development  
-Embedded C	Programming Language  
-Flash Magic	Program Download  
-Proteus (Optional)	Simulation  
-Communication Protocol  
-Protocol	Usage  
-CAN	Node Communication  
-One Wire	DS18B20 Temperature Sensor  
-ADC	Fuel Sensor Reading  
-GPIO	LEDs, LCD, Switches 
+| Software       | Purpose                       |  
+| -------------- | ----------------------------- |  
+| Keil µVision 5 | Code Development              |  
+| Embedded C     | Programming Language          |  
+| Flash Magic    | Program Download              |  
+| Proteus        | Circuit Simulation (Optional) |  
+
 
 **CAN Network Topology**
 
-120Ω                               120Ω  
-RT                                    RT  
+          120Ω                               120Ω  
+        Termination                       Termination  
+  
+CANH ============================================== CANH  
+  
+CANL ============================================== CANL  
 
-CANH ----------------------------------------- CANH  
-
-CANL ----------------------------------------- CANL  
-
-        MAIN  
-          |  
-        FUEL  
-          |  
-     INDICATOR  
+          MAIN NODE  
+               │  
+          FUEL NODE  
+               │  
+      INDICATOR NODE  
 
 CAN is terminated with 120Ω resistors at both ends to eliminate signal reflections.  
 
@@ -102,7 +98,17 @@ CAN is terminated with 120Ω resistors at both ends to eliminate signal reflecti
 
 **1️⃣ Main Node**  
 
-The Main Node acts as the central controller of the Automotive Parameter Monitoring System and coordinates communication between all the CAN nodes. It is responsible for monitoring the engine temperature, receiving fuel level information from the Fuel Node, controlling the vehicle indicators, and displaying all important parameters on the LCD. The Main Node interfaces with a DS18B20 temperature sensor, a 16×2 LCD, left and right indicator switches, and an MCP2551 CAN transceiver connected to the LPC2129 microcontroller.  
+| Function                  | Description                        |  
+| ------------------------- | ---------------------------------- |  
+| 🌡 Temperature Monitoring | Reads engine temperature           |  
+| 📺 LCD Display            | Displays temperature & fuel level  |  
+| 📩 CAN Receiver           | Receives fuel level from Fuel Node |  
+| 🚦 Indicator Control      | Reads switch status                |  
+| 📤 CAN Transmitter        | Sends indicator commands           |  
+| 🧠 Network Controller     | Coordinates all CAN communication  |  
+
+
+main node work flow  
 
 DS18B20  
      ↓  
@@ -133,7 +139,12 @@ LED Animation
 
 **2️⃣ Fuel Node**
 
-The Fuel Node is dedicated to monitoring the vehicle's fuel level and transmitting the measured value to the Main Node through the CAN bus. It consists of an LPC2129 microcontroller, an analog fuel sensor (represented by a potentiometer in this project), and an MCP2551 CAN transceiver. The analog output of the fuel sensor is connected to one of the ADC channels of the LPC2129.  
+| Function         | Description                    |  
+| ---------------- | ------------------------------ |  
+| Fuel Measurement | Reads analog fuel level        |  
+| ADC Conversion   | Converts analog to digital     |  
+| CAN Transmission | Sends fuel percentage          |  
+| Periodic Update  | Continuously updates Main Node |  
 
 Fuel Sensor  
       ↓  
@@ -147,8 +158,13 @@ Main Node
 Fuel Percentage Calculation  
 
 **3️⃣ Indicator Node**  
-The Indicator Node is responsible for controlling the vehicle's left and right indicator lights based on commands received from the Main Node through the CAN bus. It consists of an LPC2129 microcontroller, an MCP2551 CAN transceiver, and a set of LEDs used to simulate the vehicle indicators.
-
+| Function        | Description                |  
+| --------------- | -------------------------- |  
+| CAN Receiver    | Receives indicator command |  
+| LED Control     | Drives LEDs                |  
+| Left Animation  | Right → Left scrolling     |  
+| Right Animation | Left → Right scrolling     |  
+  
 
 **CAN Communication Flow** 
 
@@ -199,37 +215,43 @@ Repeat Forever
 
 **Key Features**
 
-Multi-node CAN network architecture  
-Real-time sensor monitoring  
-Fuel level measurement using ADC  
-Digital temperature measurement using DS18B20    
-CAN-based indicator control  
-Distributed processing using three LPC2129 controllers  
-16×2 LCD for real-time monitoring  
-Reliable communication with CAN error detection  
-Low wiring complexity compared to point-to-point communication  
-Modular and scalable design  
+| Feature                     | Description                    |  
+| --------------------------- | ------------------------------ |  
+| Multi-node CAN Architecture | Three independent controllers  |  
+| Real-time Monitoring        | Live vehicle parameter display |  
+| Fuel Level Monitoring       | ADC based                      |  
+| Temperature Monitoring      | DS18B20 based                  |  
+| Indicator Control           | CAN controlled                 |  
+| Distributed Processing      | Multiple ECUs                  |  
+| Modular Design              | Easy to expand                 |  
+| Reliable Communication      | CAN Error Detection            |  
+
 
 **Advantages**  
 
-High communication reliability  
-Fault-tolerant network  
-Fast real-time data transfer  
-Reduced wiring harness  
-Easy addition of new ECU nodes  
-Supports priority-based message transmission  
-Suitable for automotive applications   
+| Benefit                 | Description                         |  
+| ----------------------- | ----------------------------------- |  
+| High Reliability        | Robust CAN communication            |  
+| Reduced Wiring          | Single CAN network                  |  
+| Fault Tolerance         | CAN Error Detection                 |  
+| Real-time Communication | Fast data transfer                  |  
+| Expandable              | Easy to add new nodes               |  
+| Priority Arbitration    | Critical messages transmitted first |  
+   
 
 **Applications**
 
-Passenger vehicles  
-Electric vehicles (EVs)  
-Agricultural machinery  
-Heavy-duty trucks  
-Industrial automation  
-Marine control systems  
-Smart transportation systems  
-Automotive ECU development and education
+| Application           |  
+| --------------------- |  
+| Passenger Vehicles    |  
+| Electric Vehicles     |  
+| Agricultural Machines |  
+| Heavy Trucks          |  
+| Industrial Automation |  
+| Marine Systems        |  
+| Smart Transportation  |  
+| Automotive Education  |  
+
 
 **Project Folder Structure**     
 
@@ -260,12 +282,15 @@ Automotive-CAN-Bus-System/
 
  **Output**
 
-LCD displays engine temperature in real time.    
-Fuel node continuously measures and sends fuel percentage to the main node.  
-Main node receives and displays the fuel level on the LCD.  
-Pressing the Left Indicator switch causes LEDs on the Indicator Node to scroll from right to left.  
-Pressing the Right Indicator switch causes LEDs to scroll from left to right.  
-All communication occurs over the CAN bus, with reliable message transmission between nodes.  
+| Module       | Output                                   |  
+| ------------ | ---------------------------------------- |  
+| Main Node    | Displays engine temperature              |  
+| Fuel Node    | Sends fuel percentage continuously       |  
+| Main Node    | Receives and displays fuel level         |  
+| Left Switch  | LEDs scroll Right → Left                 |  
+| Right Switch | LEDs scroll Left → Right                 |  
+| CAN Bus      | Reliable communication between all nodes |  
+
 
 <img width="504" height="200" alt="WhatsApp Image 2026-07-15 at 4 06 34 PM" src="https://github.com/user-attachments/assets/5b510585-ced7-4972-bec4-744b1d1ad098" />
 
