@@ -96,7 +96,7 @@ CAN is terminated with 120Ω resistors at both ends to eliminate signal reflecti
 <img width="680" height="503" alt="WhatsApp Image 2026-07-16 at 4 38 21 PM" src="https://github.com/user-attachments/assets/c0113445-d179-4d86-84d0-2a5bbaff9207" />
 
 
-**1️⃣ Main Node**  
+**🚘 Main Node**  
 
 | Function                  | Description                        |  
 | ------------------------- | ---------------------------------- |  
@@ -137,7 +137,7 @@ Indicator Node
       ↓  
 LED Animation
 
-**2️⃣ Fuel Node**
+**⛽Fuel Node**
 
 | Function         | Description                    |  
 | ---------------- | ------------------------------ |  
@@ -157,7 +157,7 @@ CAN Message
 Main Node  
 Fuel Percentage Calculation  
 
-**3️⃣ Indicator Node**  
+**💡Indicator Node**  
 | Function        | Description                |  
 | --------------- | -------------------------- |  
 | CAN Receiver    | Receives indicator command |  
@@ -193,7 +193,7 @@ LED Animation
 <img width="680" height="440" alt="WhatsApp Image 2026-07-15 at 4 09 29 PM (1)" src="https://github.com/user-attachments/assets/2894d723-c507-41a1-8bb8-7b3faebe8bcf" />
 
 
-**Project Workflow**    
+**📊Project Workflow**    
 
 Power ON  
 ↓  
@@ -217,7 +217,7 @@ Display Results
 ↓  
 Repeat Forever
 
-**Key Features**
+**⭐Key Features**
 
 | Feature                     | Description                    |  
 | --------------------------- | ------------------------------ |  
@@ -231,7 +231,7 @@ Repeat Forever
 | Reliable Communication      | CAN Error Detection            |  
 
 
-**Advantages**  
+**🚀Advantages**  
 
 | Benefit                 | Description                         |  
 | ----------------------- | ----------------------------------- |  
@@ -243,7 +243,7 @@ Repeat Forever
 | Priority Arbitration    | Critical messages transmitted first |  
    
 
-**Applications**
+**🚙Applications**
 
 | Application           |  
 | --------------------- |  
@@ -257,7 +257,7 @@ Repeat Forever
 | Automotive Education  |  
 
 
-**Project Folder Structure**     
+**📁Project Folder Structure**     
 
 Automotive-CAN-Bus-System/  
 │  
@@ -284,7 +284,7 @@ Automotive-CAN-Bus-System/
 ├── README.md  
 └── LICENSE  
 
- **Output**
+ **📺 Output**
 
 | Module       | Output                                   |  
 | ------------ | ---------------------------------------- |  
@@ -302,5 +302,5 @@ Automotive-CAN-Bus-System/
 
 
 
-**Author**  
+**👨‍💻Author**  
 *Rahul Rapelli*
