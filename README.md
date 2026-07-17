@@ -166,6 +166,7 @@ Fuel Percentage Calculation
 | Right Animation | Left → Right scrolling     |  
   
 
+
 **CAN Communication Flow** 
 
 Fuel Sensor  
@@ -187,9 +188,12 @@ Indicator Node
       ↓  
 LED Animation  
  
-**Project Workflow**    
+  
 
 <img width="680" height="440" alt="WhatsApp Image 2026-07-15 at 4 09 29 PM (1)" src="https://github.com/user-attachments/assets/2894d723-c507-41a1-8bb8-7b3faebe8bcf" />
+
+
+**Project Workflow**    
 
 Power ON  
 ↓  
