@@ -169,24 +169,24 @@ CAN is terminated with 120Ω resistors at both ends to eliminate signal reflecti
 
 **CAN Communication Flow** 
 
-Fuel Sensor  
-     ↓  
-Fuel Node  
-     ↓  
-CAN Frame  
-     ↓  
-Main Node  
-     ↓  
-LCD  
-Left Switch  
-      ↓  
-Main Node  
-      ↓  
-CAN Frame  
-      ↓  
-Indicator Node  
-      ↓  
-LED Animation  
+        Fuel Sensor  
+           ↓  
+        Fuel Node  
+           ↓  
+        CAN Frame  
+           ↓  
+        Main Node  
+           ↓  
+          LCD  
+        Left Switch  
+            ↓  
+        Main Node  
+            ↓  
+        CAN Frame  
+            ↓  
+        Indicator Node  
+             ↓  
+        LED Animation  
  
   
 
@@ -195,27 +195,27 @@ LED Animation
 
 **📊Project Workflow**    
 
-Power ON  
-↓  
-Initialize LCD  
-↓  
-Initialize CAN  
-↓  
-Initialize DS18B20  
-↓  
-Initialize ADC  
-↓  
-Wait for CAN Messages  
-↓  
-Read Sensors  
-↓  
-Send CAN Frames  
-↓  
-Receive Frames  
-↓  
-Display Results  
-↓  
-Repeat Forever
+        Power ON  
+          ↓  
+        Initialize LCD  
+          ↓  
+      Initialize CAN  
+          ↓  
+      Initialize DS18B20  
+          ↓  
+        Initialize ADC  
+            ↓  
+    Wait for CAN Messages  
+            ↓  
+        Read Sensors  
+            ↓  
+      Send CAN Frames  
+            ↓  
+        Receive Frames  
+            ↓  
+      Display Results  
+            ↓  
+      Repeat Forever
 
 **⭐Key Features**
 
