@@ -108,34 +108,34 @@ CAN is terminated with 120Ω resistors at both ends to eliminate signal reflecti
 | 🧠 Network Controller     | Coordinates all CAN communication  |  
 
 
-main node work flow  
+**main node work flow** 
 
-DS18B20  
-     ↓  
-LPC2129  
-     ↓  
-LCD Display  
-Fuel Display  
+      DS18B20  
+         ↓  
+      LPC2129  
+         ↓  
+    LCD Display  
+    Fuel Display  
 
-Receives fuel percentage from Fuel Node.  
+  Receives fuel percentage from Fuel Node.  
 
-Fuel Node  
-      ↓  
-CAN Bus  
-      ↓  
-Main Node  
-      ↓  
-LCD  
-Indicator Control  
-Switch Pressed  
-      ↓  
-Main Node  
-      ↓  
-CAN Message  
-      ↓  
-Indicator Node  
-      ↓  
-LED Animation
+      Fuel Node  
+          ↓  
+      CAN Bus  
+        ↓  
+      Main Node  
+        ↓  
+        LCD  
+    Indicator Control  
+    Switch Pressed  
+          ↓  
+      Main Node  
+          ↓  
+      CAN Message  
+          ↓  
+      Indicator Node  
+          ↓  
+      LED Animation
 
 **⛽Fuel Node**
 
@@ -146,16 +146,16 @@ LED Animation
 | CAN Transmission | Sends fuel percentage          |  
 | Periodic Update  | Continuously updates Main Node |  
 
-Fuel Sensor  
-      ↓  
-ADC  
-      ↓  
-LPC2129  
-      ↓  
-CAN Message  
-      ↓  
-Main Node  
-Fuel Percentage Calculation  
+        Fuel Sensor  
+             ↓  
+            ADC  
+            ↓  
+          LPC2129  
+            ↓  
+        CAN Message  
+            ↓  
+        Main Node  
+    Fuel Percentage Calculation  
 
 **💡Indicator Node**  
 | Function        | Description                |  
