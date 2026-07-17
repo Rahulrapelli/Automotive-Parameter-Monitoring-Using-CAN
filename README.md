@@ -24,31 +24,6 @@ All nodes communicate through the CAN protocol using the on-chip CAN controller 
 | 📺 Dashboard Display  | Display vehicle parameters on LCD             |  
 | 🔌 Distributed System | Understand automotive embedded architecture   |  
 
-
-**🏗️ System Architecture**  
-
-                 +--------------------------------+  
-                 |          MAIN NODE             |  
-                 |--------------------------------|  
-                 | LPC2129                        |  
-                 | DS18B20 Temperature Sensor     |  
-                 | 16x2 LCD                       |  
-                 | Left & Right Switches          |  
-                 +---------------+----------------+  
-                                 |  
-                           MCP2551 CAN  
-                                 |  
-      ========================= CAN BUS =========================  
-                                 |  
-            +---------------------------+--------------------+  
-            |                                             |  
-      +-------------+                                 +---------------+  
-      | Fuel Node   |                                 | Indicator Node|  
-      |-------------|                                 |---------------|  
-      | LPC2129     |                                 | LPC2129       |  
-      | ADC         |                                 | LEDs          |  
-      | Fuel Sensor |                                 | LED Patterns  |  
-      +-------------+                                 +---------------+  
   
 **🧰 Hardware Components**
 
@@ -58,7 +33,7 @@ All nodes communicate through the CAN protocol using the on-chip CAN controller 
 | MCP2551 CAN Transceiver     |        3 | CAN physical layer             |  
 | DS18B20 Temperature Sensor  |        1 | Engine temperature measurement |  
 | Fuel Sensor(potentiometer)  |        1 | Fuel level simulation          |  
-| 16×2 LCD                    |        1 | Display temperature & fuel     |  
+| LCD (20X4)                  |        1 | Display temperature & fuel     |  
 | Push Buttons                |        2 | Left & Right indicator control |  
 | LEDs                        |        8 | Indicator simulation           |  
 | 120Ω Resistors              |        2 | CAN bus termination            |  
@@ -74,22 +49,7 @@ All nodes communicate through the CAN protocol using the on-chip CAN controller 
 | Embedded C     | Programming Language          |  
 | Flash Magic    | Program Download              |   
 
-
-**CAN Network Topology**
-
-          120Ω                               120Ω  
-        Termination                       Termination  
-  
-CANH ============================================== CANH  
-  
-CANL ============================================== CANL  
-
-          MAIN NODE  
-               │  
-          FUEL NODE  
-               │  
-      INDICATOR NODE  
-
+        
 CAN is terminated with 120Ω resistors at both ends to eliminate signal reflections.  
 
 <img width="800" height="600" alt="ChatGPT Image Jul 17, 2026, 05_03_23 PM" src="https://github.com/user-attachments/assets/e78a6541-e392-4736-bf54-4f8b1c0151d3" />
@@ -109,32 +69,25 @@ CAN is terminated with 120Ω resistors at both ends to eliminate signal reflecti
 
 **main node work flow** 
 
-      DS18B20  
-         ↓  
-      LPC2129  
-         ↓  
-    LCD Display  
-    Fuel Display  
+     🌡️ DS18B20  
+           │  
+           ▼  
+    🖥️ LPC2129 (Read Temperature)  
+           │  
+           ▼  
+    📺 LCD Display Temperature  
+           │  
+           ▼  
+    📡 MCP2551 CAN Transceiver  
+             │  
+    ══════ CAN BUS ══════▶  
+             │  
+             ▼  
+      ⛽ Fuel Node  
+             │  
+             ▼  
+      📊 Fuel Display  
 
-  Receives fuel percentage from Fuel Node.  
-
-      Fuel Node  
-          ↓  
-      CAN Bus  
-        ↓  
-      Main Node  
-        ↓  
-        LCD  
-    Indicator Control  
-    Switch Pressed  
-          ↓  
-      Main Node  
-          ↓  
-      CAN Message  
-          ↓  
-      Indicator Node  
-          ↓  
-      LED Animation
 
 **⛽Fuel Node**
 
@@ -145,16 +98,27 @@ CAN is terminated with 120Ω resistors at both ends to eliminate signal reflecti
 | CAN Transmission | Sends fuel percentage          |  
 | Periodic Update  | Continuously updates Main Node |  
 
-        Fuel Sensor  
-             ↓  
-            ADC  
-            ↓  
-          LPC2129  
-            ↓  
-        CAN Message  
-            ↓  
-        Main Node  
-    Fuel Percentage Calculation  
+      ⛽ Fuel Sensor  
+            │  
+            ▼  
+        ⚡ ADC  
+            │  
+            ▼  
+      🖥️ LPC2129  
+            │  
+            ▼  
+    📦 CAN Message  
+            │  
+    ══════ CAN BUS ══════▶  
+            │  
+            ▼  
+      🖥️ Main Node  
+            │  
+            ▼  
+    🧮 Fuel % Calculation  
+            │  
+            ▼  
+    📺 LCD Display (Fuel %)  
 
 **💡Indicator Node**  
 | Function        | Description                |  
@@ -163,58 +127,29 @@ CAN is terminated with 120Ω resistors at both ends to eliminate signal reflecti
 | LED Control     | Drives LEDs                |  
 | Left Animation  | Right → Left scrolling     |  
 | Right Animation | Left → Right scrolling     |  
-  
+
+        🔘 Right/left Switch  
+              │  
+              ▼  
+        🖥️ Main Node  
+              │  
+              ▼  
+        📦 CAN Frame  
+              │  
+      ══════ CAN BUS ══════▶  
+              │  
+              ▼  
+        🖥️ Indicator Node  
+              │  
+              ▼  
+      💡 LED Animation    
 
 
-**CAN Communication Flow** 
 
-        Fuel Sensor  
-           ↓  
-        Fuel Node  
-           ↓  
-        CAN Frame  
-           ↓  
-        Main Node  
-           ↓  
-          LCD  
-        Left Switch  
-            ↓  
-        Main Node  
-            ↓  
-        CAN Frame  
-            ↓  
-        Indicator Node  
-             ↓  
-        LED Animation  
- 
-  
 
 <img width="680" height="440" alt="WhatsApp Image 2026-07-15 at 4 09 29 PM (1)" src="https://github.com/user-attachments/assets/2894d723-c507-41a1-8bb8-7b3faebe8bcf" />
 
 
-**📊Project Workflow**    
-
-        Power ON  
-          ↓  
-        Initialize LCD  
-          ↓  
-      Initialize CAN  
-          ↓  
-      Initialize DS18B20  
-          ↓  
-        Initialize ADC  
-            ↓  
-    Wait for CAN Messages  
-            ↓  
-        Read Sensors  
-            ↓  
-      Send CAN Frames  
-            ↓  
-        Receive Frames  
-            ↓  
-      Display Results  
-            ↓  
-      Repeat Forever
 
 **⭐Key Features**
 
