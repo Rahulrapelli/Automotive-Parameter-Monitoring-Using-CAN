@@ -51,8 +51,8 @@ All nodes communicate through the CAN protocol using the on-chip CAN controller 
 
         
 CAN is terminated with 120Ω resistors at both ends to eliminate signal reflections.  
+<img width="600" height="400" alt="WhatsApp Image 2026-07-18 at 6 59 50 PM" src="https://github.com/user-attachments/assets/815c6719-bb3d-486b-a7c4-f847ce7d66a4" />
 
-<img width="600" height="400" alt="ChatGPT Image Jul 18, 2026, 04_29_48 PM" src="https://github.com/user-attachments/assets/7d901465-cc08-4f9f-b166-7bd1971abb05" />
 
 
 **🚘 Main Node**  
