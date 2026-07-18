@@ -62,7 +62,7 @@ CAN is terminated with 120Ω resistors at both ends to eliminate signal reflecti
 | 🌡 Temperature Monitoring | Reads engine temperature           |  
 | 📺 LCD Display            | Displays temperature & fuel level  |  
 | 📩 CAN Receiver           | Receives fuel level from Fuel Node |  
-| 🚦 Indicator Control      | Reads switch status                |  
+| 💡 Indicator Control      | Reads switch status                |  
 | 📤 CAN Transmitter        | Sends indicator commands           |  
 | 🧠 Network Controller     | Coordinates all CAN communication  |  
 
