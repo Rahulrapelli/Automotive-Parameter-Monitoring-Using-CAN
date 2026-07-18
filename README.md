@@ -83,7 +83,8 @@ CAN is terminated with 120Ω resistors at both ends to eliminate signal reflecti
 
   **fuel node work flow**   
    
- <img width="400" height="600" alt="ChatGPT Image Jul 18, 2026, 04_52_51 PM" src="https://github.com/user-attachments/assets/84544f58-f44e-405c-82cb-7f52b5e86f73" />
+<img width="400" height="600" alt="ChatGPT Image Jul 18, 2026, 05_02_20 PM" src="https://github.com/user-attachments/assets/fb3dbbf4-2e52-4a5f-9f34-8fc20da78074" />
+
 
 
 **💡Indicator Node**  
