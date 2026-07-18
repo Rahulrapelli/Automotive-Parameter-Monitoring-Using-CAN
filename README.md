@@ -52,7 +52,7 @@ All nodes communicate through the CAN protocol using the on-chip CAN controller 
         
 CAN is terminated with 120Ω resistors at both ends to eliminate signal reflections.  
 
-<img width="600" height="400" alt="ChatGPT Image Jul 17, 2026, 05_03_23 PM" src="https://github.com/user-attachments/assets/e78a6541-e392-4736-bf54-4f8b1c0151d3" />
+<img width="600" height="400" alt="ChatGPT Image Jul 18, 2026, 04_29_48 PM" src="https://github.com/user-attachments/assets/7d901465-cc08-4f9f-b166-7bd1971abb05" />
 
 
 **🚘 Main Node**  
@@ -69,24 +69,7 @@ CAN is terminated with 120Ω resistors at both ends to eliminate signal reflecti
 
 **main node work flow** 
 
-     🌡️ DS18B20  
-           │  
-           ▼  
-    🖥️ LPC2129 (Read Temperature)  
-           │  
-           ▼  
-    📺 LCD Display Temperature  
-           │  
-           ▼  
-    📡 MCP2551 CAN Transceiver  
-             │  
-    ══════ CAN BUS ══════▶  
-             │  
-             ▼  
-      ⛽ Fuel Node  
-             │  
-             ▼  
-      📊 Fuel Display  
+<img width="400" height="600" alt="ChatGPT Image Jul 18, 2026, 04_49_30 PM" src="https://github.com/user-attachments/assets/441c46e9-0469-4d0f-a233-2a52cf84c3f4" />
 
 
 **⛽Fuel Node**
@@ -100,27 +83,8 @@ CAN is terminated with 120Ω resistors at both ends to eliminate signal reflecti
 
   **fuel node work flow**   
    
-      ⛽ Fuel Sensor  
-            │  
-            ▼  
-        ⚡ ADC  
-            │  
-            ▼  
-      🖥️ LPC2129  
-            │  
-            ▼  
-    📦 CAN Message  
-            │  
-    ══════ CAN BUS ══════▶  
-            │  
-            ▼  
-      🖥️ Main Node  
-            │  
-            ▼  
-    🧮 Fuel % Calculation  
-            │  
-            ▼  
-    📺 LCD Display (Fuel %)  
+ <img width="400" height="600" alt="ChatGPT Image Jul 18, 2026, 04_52_51 PM" src="https://github.com/user-attachments/assets/84544f58-f44e-405c-82cb-7f52b5e86f73" />
+
 
 **💡Indicator Node**  
 | Function        | Description                |  
@@ -132,21 +96,8 @@ CAN is terminated with 120Ω resistors at both ends to eliminate signal reflecti
 
  **Indicator node work flow**   
 
-        🔘 Right/left Switch  
-              │  
-              ▼  
-        🖥️ Main Node  
-              │  
-              ▼  
-        📦 CAN Frame  
-              │  
-      ══════ CAN BUS ══════▶  
-              │  
-              ▼  
-        🖥️ Indicator Node  
-              │  
-              ▼  
-      💡 LED Animation    
+  <img width="400" height="600" alt="ChatGPT Image Jul 18, 2026, 04_57_21 PM" src="https://github.com/user-attachments/assets/37c182f9-9099-4ca8-904a-bfeb13ddea61" />
+
 
 
 
