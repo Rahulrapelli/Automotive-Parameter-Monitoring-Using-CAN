@@ -69,7 +69,8 @@ CAN is terminated with 120Ω resistors at both ends to eliminate signal reflecti
 
 **main node work flow** 
 
-<img width="400" height="600" alt="ChatGPT Image Jul 18, 2026, 04_49_30 PM" src="https://github.com/user-attachments/assets/441c46e9-0469-4d0f-a233-2a52cf84c3f4" />
+<img width="200" height="400" alt="ChatGPT Image Jul 21, 2026, 11_55_26 AM" src="https://github.com/user-attachments/assets/30af9840-953c-432c-b217-6eabd6c02d13" />
+
 
 
 **⛽Fuel Node**
@@ -83,7 +84,8 @@ CAN is terminated with 120Ω resistors at both ends to eliminate signal reflecti
 
   **fuel node work flow**   
    
-<img width="400" height="600" alt="ChatGPT Image Jul 18, 2026, 05_02_20 PM" src="https://github.com/user-attachments/assets/fb3dbbf4-2e52-4a5f-9f34-8fc20da78074" />
+<img width="400" height="600" alt="ChatGPT Image Jul 21, 2026, 11_43_18 AM" src="https://github.com/user-attachments/assets/39741f2a-7ac4-4a29-8bdf-23f29fe97faf" />
+
 
 
 
